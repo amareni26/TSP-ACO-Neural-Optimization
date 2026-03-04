@@ -1,5 +1,5 @@
 import numpy as np
-from src.utils import generate_cities
+from src.utils import generate_cities, plot_tsp_result
 from src.aco_base import ACO_Base
 
 def run_experiment():
@@ -28,6 +28,8 @@ def run_experiment():
     print(f"Meilleure distance trouvée : {best_dist:.4f}")
     print(f"Chemin optimal : {best_path}")
     print("-----------------------------------------")
+
+    plot_tsp_result(villes, best_path, best_dist)
 
 if __name__ == "__main__":
     # Ensure the random results are reproducible
