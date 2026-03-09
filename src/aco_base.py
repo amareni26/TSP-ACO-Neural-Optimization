@@ -34,7 +34,7 @@ class ACO_Base:
             for j in range(self.n_cities):
                 if i != j:
                     # np.linalg.norm calculates the straight-line distance
-                    matrix[i][j] = np.linalg.norm(self(self.city_coords[i] - self.city_coords[j]))
+                    matrix[i][j] = np.linalg.norm(self.city_coords[i] - self.city_coords[j])
         return matrix
     
     def run(self):
@@ -100,9 +100,9 @@ class ACO_Base:
         """Calculate the total length of a path (loop)."""
         d = 0
         for k in range(len(path) - 1):
-            d += self.distances[path[k][path[k+1]]]
+            d += self.distances[path[k], path[k+1]]
         # Add distance back to the starting city to close the loop
-        d += self.distances[path[-1][path[0]]]
+        d += self.distances[path[-1]][path[0]]
         return d
     
     def _update_pheromones(self, all_paths):
