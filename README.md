@@ -42,6 +42,7 @@ pip install numpy matplotlib torch tsplib95
 
 Cette commande installe les dépendances nécessaires au projet :
 
+```
 NumPy : Pour le calcul matriciel et la manipulation des distances.
 
 Matplotlib : Pour la visualisation des tournées et des graphiques de résultats.
@@ -49,7 +50,7 @@ Matplotlib : Pour la visualisation des tournées et des graphiques de résultats
 Torch (PyTorch) : Pour la conception et l'entraînement du réseau de neurones (MLP).
 
 tsplib95 : Pour le chargement et le parsing des instances standards de la bibliothèque TSPLIB (fichiers .tsp).
-
+```
 ---
 
 ## Exécution
