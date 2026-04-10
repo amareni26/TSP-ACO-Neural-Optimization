@@ -22,7 +22,7 @@ class ACO_Base:
         self.beta = beta    
         self.evaporation = evaporation
         # Pheromone deposit constant
-
+        self.Q = Q
         
         # Create a square matrix (N x N) initialized with 1s for pheromones
         self.pheromones = np.ones((self.n_cities, self.n_cities))

@@ -1,9 +1,35 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import tsplib95
 
 def generate_cities(n_cities):
     # Generates random x, y coordinates for n cities
     return np.random.rand(n_cities, 2)
+
+
+def load_tsplib_instance(filepath):
+    """
+    Loads a TSPLIB instance from a .tsp file and returns
+    normalized city coordinates as a numpy array.
+
+    Parameters:
+        filepath : path to the .tsp file
+                   e.g. 'data/ulysses22.tsp'
+
+    Returns:
+        numpy array of shape (N, 2) with normalized coordinates
+    """
+    problem = tsplib95.load(filepath)
+
+    # Extract city coordinates
+    nodes = list(problem.node_coords.values())
+    cities = np.array(nodes, dtype=float)
+
+    # Normalize to [0, 1] for consistency with our model
+    cities -= cities.min(axis=0)
+    cities /= cities.max(axis=0)
+
+    return cities
 
 def plot_cities(cities):
     """Plots city positions only (no path)."""

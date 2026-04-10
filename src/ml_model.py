@@ -39,9 +39,6 @@ class TSP_Predictor(nn.Module):
             # Input = 16, Output = 1 (A single score/probability)
             nn.Linear(16, 1),
             
-            # Sigmoid squashes the output to [0, 1]
-            # 0 = "Bad edge", 1 = "Perfect edge for the path"
-            nn.Sigmoid()
         )
 
     def forward(self, x):
